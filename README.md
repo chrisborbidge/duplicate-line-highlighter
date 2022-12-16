@@ -17,13 +17,13 @@ The decorate function does the following:
 
 The decorations added by the extension are defined by the decorationType constant, which is created using the createTextEditorDecorationType method on the vscode.window object. This method takes an object that defines the appearance of the decoration (in this case, a background color of rgba(255, 0, 0, 0.5)).
 
-# Building .vsix file
+## Building .vsix file
 
 To build the .vsix file:
 
 1. Install the vsce package globally using `npm install -g vsce`
 2. Run `vsce package`
 
-# Installing the extension
+## Installing the extension
 
 To install the extension, right-click on the generated .vsix file and select "Install Extension".

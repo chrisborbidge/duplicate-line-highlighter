@@ -15,7 +15,25 @@
     "onLanguage:plaintext"
   ],
   "main": "./extension.js",
-  "contributes": {},
+  "contributes": {
+    "configuration": {
+      "properties": {
+        "duplicateLineHighlightColor": {
+          "type": "string",
+          "default": "rgba(255, 0, 0, 0.5)",
+          "description": "The color used to highlight duplicate lines in the editor."
+        }
+      }
+    },
+    "keybindings": [
+      {
+        "command": "duplicateLineHighlighter.decorateDuplicateLines",
+        "key": "u",
+        "when": "editorTextFocus && !editorReadonly",
+        "mac": "cmd+u"
+      }
+    ]
+  },
   "scripts": {
     "lint": "eslint .",
     "pretest": "npm run lint",

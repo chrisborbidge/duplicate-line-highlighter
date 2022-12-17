@@ -1,28 +1,34 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 const vscode = require('vscode');
 
-const decorationType = vscode.window.createTextEditorDecorationType({
-	backgroundColor: "rgba(255, 0, 0, 0.5)",
-});
+// Get the value of the 'duplicateLineHighlightColor' configuration option
+let highlightColor = vscode.workspace.getConfiguration().get('duplicateLineHighlightColor');
 
-
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
-
+let toggle = true;
+let decorationType;
 /**
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
-	vscode.workspace.onWillSaveTextDocument(event => {
-		const openEditor = vscode.window.visibleTextEditors.filter(
-			editor => editor.document.uri === event.document.uri
-		)[0];
-		decorate(openEditor);
+	let decorateDuplicateLines = vscode.commands.registerCommand('duplicateLineHighlighter.decorateDuplicateLines', () => {
+		if (toggle) {
+			// Use the value of 'duplicateLineHighlightColor' as the background color for the decoration type
+			decorationType = vscode.window.createTextEditorDecorationType({
+				backgroundColor: highlightColor,
+			});
+			decorate(vscode.window.activeTextEditor, decorationType);
+			toggle = !toggle;
+		} else {
+			decorationType.dispose();
+			toggle = !toggle;
+		}
 	});
+
+	// Add the command to the context
+	context.subscriptions.push(decorateDuplicateLines);
 }
 
-function decorate(editor) {
+function decorate(editor, decorationType) {
+
 	let sourceCode = editor.document.getText();
 	let decorationsArray = [];
 

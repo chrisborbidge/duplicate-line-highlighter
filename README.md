@@ -1,10 +1,8 @@
 # Duplicate Line Highlighter
 
-This is a Visual Studio Code (VS Code) extension that highlights duplicate lines in a source code file when it is saved. 
+This code is a Visual Studio Code (VS Code) extension written in JavaScript that highlights duplicate lines in a text file and displays a hover message with the count of duplicate lines.
 
 ## How it works
-
-This code is a Visual Studio Code (VS Code) extension written in JavaScript that highlights duplicate lines in a text file and displays a hover message with the count of duplicate lines.
 
 This code is a Visual Studio Code extension that highlights and counts duplicate lines in a source code file. When activated, the extension will first get the value of the duplicateLineHighlightColor configuration option, which specifies the color to use for highlighting duplicate lines.
 
@@ -17,6 +15,11 @@ The extension registers a command, duplicateLineHighlighter.decorateDuplicateLin
 5. Set the hover message for each line to show the number of times the line appears in the source code
 
 When the command is run again, the extension disposes of the decorationType, effectively removing the highlighting and hover messages from the source code.
+
+## How to use
+
+1. Open a text file in VS Code
+2. Press Command+U (Mac) or Ctrl+U (Windows) to highlight duplicate lines
 
 ## Building .vsix file
 

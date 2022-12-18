@@ -2,6 +2,7 @@
   "name": "duplicate-line-highligher",
   "displayName": "Duplicate Line highligher",
   "description": "",
+  "icon": "images/icon.png",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.71.0"

@@ -23,13 +23,15 @@ When the command is run again, the extension disposes of the `decorationType`, r
 1. Open a text file in VS Code
 2. Press `Command+U` (Mac) or `Ctrl+U` (Windows) to highlight duplicate lines
 
-## Building .vsix file
+## Development
+
+### Building .vsix file
 
 To build the .vsix file:
 
 1. Install the vsce package globally using `npm install -g vsce`
 2. Run `vsce package`
 
-## Installing the extension
+### Installing the extension
 
 To install the extension, right-click on the generated `.vsix` file and select "Install Extension".
